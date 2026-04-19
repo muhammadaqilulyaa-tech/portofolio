@@ -1,0 +1,1114 @@
+<!doctype html>
+
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warkop Aqil</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background: #f9f6f1;
+        color: #2c2c2c;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        width: 100%;
+        background: #3e2c1c;
+        padding: 16px 50px; /* 🔥 lebih besar */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      /* LOGO */
+      nav h2 {
+        color: #ffeac5;
+        font-size: 20px; /* 🔥 lebih besar */
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      /* MENU */
+      nav ul {
+        display: flex;
+        gap: 28px; /* 🔥 lebih lega */
+        list-style: none;
+        align-items: center;
+      }
+
+      /* LINK */
+      nav a {
+        color: #ffeac5;
+        text-decoration: none;
+        font-size: 15px; /* 🔥 lebih besar */
+        position: relative;
+        transition: 0.3s;
+      }
+
+      /* ANIMASI GARIS BAWAH */
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background: #ffeac5;
+        left: 0;
+        bottom: -5px;
+        transition: 0.3s;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      nav a:hover {
+        opacity: 0.8;
+      }
+
+      /* CART ICON */
+      .cart-icon {
+        cursor: pointer;
+        background: #ffeac5;
+        color: #3e2c1c;
+        padding: 6px 14px; /* 🔥 lebih besar */
+        border-radius: 20px;
+        font-size: 13px;
+        transition: 0.25s;
+      }
+
+      .cart-icon:hover {
+        transform: scale(1.08);
+        background: #fff;
+      }
+
+      /* ICON CART */
+      .cart-icon {
+        cursor: pointer;
+        background: #ffeac5;
+        color: #3e2c1c;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+      }
+
+      /* HERO */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 100px 50px;
+        background: #3e2c1c;
+        color: #ffeac5;
+      }
+
+      /* TEXT KIRI */
+      .hero-text {
+        width: 50%;
+      }
+      .hero-text h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+      .hero-text p {
+        font-size: 14px;
+        margin-bottom: 20px;
+        opacity: 0.8;
+      }
+      .hero-text button {
+        padding: 10px 18px;
+        border: none;
+        background: #ffeac5;
+        color: #3e2c1c;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .btn-floating {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 22px;
+        background: #ffeac5;
+        color: #3e2c1c;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .btn-floating:hover {
+        transform: translateX(-50%) scale(1.05);
+      }
+
+      /* GRID KANAN */
+      .hero-grid {
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        height: 350px;
+        overflow: hidden;
+      }
+
+      /* FRAME */
+      .grid-item {
+        border: 3px solid #ffeac5;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      /* IMAGE */
+      .grid-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* ANIMASI */
+      .slide {
+        display: flex;
+        flex-direction: column;
+        animation: slideUp 10s linear infinite;
+      }
+
+      @keyframes slideUp {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-50%);
+        }
+      }
+
+      /* SECTION */
+      section {
+        padding: 70px 30px;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 22px;
+      }
+
+      /* MENU */
+      .menu-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+      .menu-box {
+        background: #fff;
+        padding: 15px;
+        border-radius: 12px;
+        max-height: 450px;
+        overflow-y: auto;
+      }
+      .menu-box h3 {
+        margin-bottom: 10px;
+        font-size: 22px;
+        text-align: center;
+      }
+      .menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        transition: 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+      }
+      .card img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+      }
+      .info {
+        text-align: center;
+        padding: 8px;
+      }
+      .info h3 {
+        font-size: 12px;
+      }
+      .info p {
+        font-size: 11px;
+      }
+      .rating {
+        color: #f4b400;
+        font-size: 11px;
+      }
+      button {
+        margin-top: 5px;
+        background: #3e2c1c;
+        color: white;
+        border: none;
+        padding: 6px;
+        border-radius: 6px;
+        font-size: 11px;
+        cursor: pointer;
+      }
+
+      /* CART BOX */
+      .cart-box {
+        position: fixed;
+        top: 70px;
+        right: 20px;
+        width: 230px;
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        display: none;
+        z-index: 999;
+      }
+      .cart-box h4 {
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+      .cart-box p {
+        font-size: 12px;
+      }
+
+      /* CONTACT */
+      #contact {
+        background: #fff0d1;
+        padding: 110px 60px;
+      }
+
+      /* CONTAINER */
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        max-width: 1100px;
+        margin: auto;
+        align-items: center;
+      }
+
+      /* MAP */
+      iframe {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 16px;
+        border: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+      iframe:hover {
+        transform: scale(1.02);
+      }
+
+      /* FORM BOX */
+      form {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      /* INPUT */
+      input,
+      textarea {
+        padding: 14px;
+        font-size: 13px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        outline: none;
+        transition: 0.2s;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: #3e2c1c;
+        box-shadow: 0 0 0 2px rgba(62, 44, 28, 0.1);
+      }
+
+      /* TEXTAREA */
+      textarea {
+        min-height: 100px;
+        resize: none;
+      }
+
+      /* BUTTON */
+      form button {
+        margin-top: 10px;
+        padding: 12px;
+        border-radius: 10px;
+        background: #3e2c1c;
+        color: #fff;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      form button:hover {
+        background: #2a1e13;
+        transform: translateY(-2px);
+      }
+
+      /* EMAIL TEXT */
+      form p {
+        margin-top: 10px;
+        font-size: 13px;
+        color: #555;
+      }
+
+      /* FOOTER */
+      /* FOOTER */
+      footer {
+        background: #3e2c1c;
+        color: #ffeac5;
+        padding: 40px 20px 25px;
+      }
+
+      /* WRAP */
+      .footer-wrap {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        max-width: 1000px;
+        margin: auto;
+      }
+
+      /* TITLE */
+      .footer-wrap h4 {
+        font-size: 14px;
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      /* garis kecil bawah judul */
+      .footer-wrap h4::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background: #ffeac5;
+        bottom: -4px;
+        left: 0;
+        transition: 0.3s;
+      }
+
+      .footer-wrap div:hover h4::after {
+        width: 40%;
+      }
+
+      /* TEXT */
+      .footer-wrap p {
+        font-size: 12px;
+        opacity: 0.8;
+        cursor: pointer;
+        transition: 0.25s;
+      }
+
+      /* HOVER TEXT */
+      .footer-wrap p:hover {
+        opacity: 1;
+        transform: translateX(5px);
+        color: #ffffff;
+      }
+
+      /* FOOTER BOTTOM */
+      .footer-bottom {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 11px;
+        opacity: 0.7;
+        transition: 0.3s;
+      }
+
+      .footer-bottom:hover {
+        opacity: 1;
+        letter-spacing: 1px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+        }
+        .hero-text,
+        .hero-grid {
+          width: 100%;
+        }
+        .hero-grid {
+          margin-top: 20px;
+          height: 250px;
+        }
+        .menu-wrapper,
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+        .menu {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* SIDEBAR CART */
+      .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 300px;
+        height: 100%;
+        background: #ffffff;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+        padding: 25px 20px;
+        transition: 0.35s ease;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+
+        /* 🔥 bikin lebih smooth */
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+      }
+
+      .cart-sidebar.active {
+        right: 0;
+      }
+
+      /* TOMBOL TUTUP */
+      .close-cart {
+        position: absolute;
+        left: -18px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #3e2c1c;
+        color: #fff;
+        padding: 10px 8px;
+        border-radius: 10px 0 0 10px; /* 🔥 lebih bulat */
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .close-cart:hover {
+        background: #2a1e13;
+        transform: translateY(-50%) scale(1.05);
+      }
+
+      /* ITEM CART */
+      .cart-item {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* 🔥 lebih lega */
+        font-size: 24px; /* 🔥 lebih gede */
+        margin-bottom: 12px;
+        padding: 10px;
+        border-radius: 12px;
+        transition: 0.2s;
+      }
+      /* hover item */
+      .cart-item:hover {
+        background: #f3f3f3;
+      }
+
+      /* IMAGE */
+      .cart-item img {
+        width: 50px; /* 🔥 dari 35 → 50 */
+        height: 50px;
+        border-radius: 10px;
+      }
+
+      /* TEXT */
+      .cart-item span {
+        flex: 1;
+        font-size: 12px;
+      }
+
+      /* BUTTON HAPUS */
+      .cart-item button {
+        background: #ff4d4d;
+        color: #fff;
+        font-size: 10px;
+        padding: 3px 6px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .cart-item button:hover {
+        background: #e60000;
+      }
+
+      /* TOTAL */
+      .cart-total {
+        margin-top: auto;
+        font-size: 14px;
+        font-weight: 600;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+      }
+
+      /* BUTTON BELI */
+      .cart-actions button {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 10px; /* 🔥 lebih bulat */
+        background: #3e2c1c;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        transition: 0.2s;
+      }
+
+      .cart-actions button:hover {
+        background: #2a1e13;
+        transform: translateY(-2px);
+      }
+
+      /* VARIAN MINUMAN */
+      .variant-box {
+        display: flex;
+        gap: 5px;
+        margin-top: 5px;
+        justify-content: center;
+      }
+
+      .variant-btn {
+        font-size: 10px;
+        padding: 4px 6px;
+        border-radius: 6px;
+        cursor: pointer;
+        border: none;
+        color: white;
+      }
+
+      /* WARNA */
+      .panas {
+        background: #ff4d4d;
+      }
+      .hangat {
+        background: #ff9900;
+      }
+      .dingin {
+        background: #3498db;
+      }
+
+      /* MODAL PILIHAN */
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+      }
+
+      .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        width: 250px;
+        animation: pop 0.2s ease;
+      }
+
+      @keyframes pop {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .modal-content h3 {
+        margin-bottom: 15px;
+      }
+
+      .modal-content button {
+        margin: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <h2>Warkop Aqil</h2>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+        <!-- CART ICON -->
+        <li class="cart-icon" onclick="toggleCart()">
+          🛒 (<span id="count">0</span>)
+        </li>
+      </ul>
+    </nav>
+
+    <!-- MODAL HTML (taruh sebelum </body>) -->
+    <div class="modal" id="variantModal">
+      <div class="modal-content">
+        <h3>Pilih Suhu</h3>
+        <button class="variant-btn panas" onclick="selectVariant('Panas')">
+          Panas
+        </button>
+        <button class="variant-btn hangat" onclick="selectVariant('Hangat')">
+          Hangat
+        </button>
+        <button class="variant-btn dingin" onclick="selectVariant('Dingin')">
+          Dingin
+        </button>
+      </div>
+    </div>
+
+    <!-- SIDEBAR CART -->
+    <div class="cart-sidebar" id="cartSidebar">
+      <!-- TOMBOL TUTUP (>>) -->
+      <div class="close-cart" onclick="toggleCart()">>></div>
+
+      <h3>Keranjang</h3>
+
+      <div id="cartItems"></div>
+
+      <!-- TOTAL -->
+      <div class="cart-total" id="total">Total: Rp 0</div>
+
+      <!-- AKSI -->
+      <div class="cart-actions">
+        <button onclick="checkout()">Beli Sekarang</button>
+        <button onclick="addNote()">Tambah Catatan</button>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <button
+        class="btn-floating"
+        onclick="document.getElementById('menu').scrollIntoView()"
+      >
+        Lihat Menu
+      </button>
+      <div class="hero-text">
+        <h1>Warkop Aqil ☕</h1>
+        <p>
+          Tempat nongkrong santai khas Aceh dengan kopi terbaik dan makanan
+          hangat.
+        </p>
+      </div>
+
+      <div class="hero-grid">
+        <div class="grid-item">
+          <div class="slide">
+            <img src="img/gambar1.jpg" />
+            <img src="img/gambar1.2.jpg" />
+          </div>
+        </div>
+
+        <div class="grid-item">
+          <div class="slide">
+            <img src="img/gambar2.jpg" />
+          </div>
+        </div>
+
+        <div class="grid-item">
+          <div class="slide">
+            <img src="img/gambar3.jpg" />
+          </div>
+        </div>
+
+        <div class="grid-item">
+          <div class="slide">
+            <img src="img/gambar4.jpg " />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <h1>Menu Warkop</h1>
+
+      <div class="menu-wrapper">
+        <div class="menu-box">
+          <h3>Makanan</h3>
+          <div class="menu" id="food"></div>
+        </div>
+
+        <div class="menu-box">
+          <h3>Minuman</h3>
+          <div class="menu" id="drink"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h1>Contact & Lokasi</h1>
+
+      <div class="contact-container">
+        <iframe src="https://maps.google.com/maps?q=aceh&output=embed"></iframe>
+
+        <form>
+          <input type="text" placeholder="Nama" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Pesan"></textarea>
+          <button>Kirim</button>
+          <p>Email: warkopaqil@gmail.com</p>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-wrap">
+        <div>
+          <h4>Warkop Aqil</h4>
+          <p>Tempat nongkrong santai khas Aceh.</p>
+        </div>
+
+        <div>
+          <h4>Alamat</h4>
+          <p>Luengbata, Banda Aceh</p>
+        </div>
+
+        <div>
+          <h4>Social</h4>
+          <p>Instagram</p>
+          <p>WhatsApp</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2026 Muhammad Aqil Ulya</div>
+    </footer>
+
+    <script>
+      const foods = [
+        {
+          name: "Mie Aceh",
+          price: 20000,
+          rating: 5,
+          img: "img/mieaceh.jpg",
+        },
+        {
+          name: "Nasi Goreng",
+          price: 20000,
+          rating: 4,
+          img: "img/nasigoreng.jpg",
+        },
+        {
+          name: "Mie Aceh Goreng Spesial",
+          price: 25000,
+          rating: 5,
+          img: "img/mieacehspesial.jpg",
+        },
+        {
+          name: "Mie Aceh Kuah Daging",
+          price: 24000,
+          rating: 5,
+          img: "img/mieacehkuahdaging.jpg",
+        },
+        {
+          name: "Mie Aceh Tumis Udang",
+          price: 23000,
+          rating: 4,
+          img: "img/MieAcehTumisUdang.jpg",
+        },
+        {
+          name: "Nasi Goreng Telur",
+          price: 18000,
+          rating: 4,
+          img: "img/NasiGorengTelur.jpg",
+        },
+        {
+          name: "Nasi Goreng Seafood",
+          price: 26000,
+          rating: 5,
+          img: "img/NasiGorengSeafood.jpg",
+        },
+        {
+          name: "Indomie Double Telur",
+          price: 18000,
+          rating: 5,
+          img: "img/IndomieDoubleTelur.jpg",
+        },
+        {
+          name: "Indomie Kornet",
+          price: 17000,
+          rating: 4,
+          img: "img/IndomieKornet.jpg",
+        },
+        {
+          name: "Roti Bakar Coklat",
+          price: 12000,
+          rating: 4,
+          img: "img/RotiBakarCoklat.jpg",
+        },
+        {
+          name: "Roti Bakar Keju",
+          price: 13000,
+          rating: 4,
+          img: "img/RotiBakarKeju.jpg",
+        },
+        {
+          name: "Kentang Goreng",
+          price: 12000,
+          rating: 4,
+          img: "img/KentangGoreng.jpg",
+        },
+        {
+          name: "Martabak",
+          price: 15000,
+          rating: 4,
+          img: "img/martabak.jpg",
+        },
+        {
+          name: "Roti Cane",
+          price: 12000,
+          rating: 4,
+          img: "img/roticane.jpg",
+        },
+        {
+          name: "Martabak Mie",
+          price: 17000,
+          rating: 5,
+          img: "img/martabakmie.jpg",
+        },
+      ];
+
+      const drinks = [
+        {
+          name: "Kopi Aceh",
+          price: 10000,
+          rating: 5,
+          img: "img/kopiaceh.jpg",
+        },
+        {
+          name: "Teh Tarik",
+          price: 12000,
+          rating: 5,
+          img: "img/tehtarik.jpg",
+        },
+        {
+          name: "Kopi Hitam",
+          price: 9000,
+          rating: 5,
+          img: "img/kopihitam.jpg",
+        },
+        {
+          name: "Kopi Susu",
+          price: 12000,
+          rating: 5,
+          img: "img/kopisusu.jpg",
+        },
+        {
+          name: "Kopi Susu Gula Aren",
+          price: 15000,
+          rating: 5,
+          img: "img/EsKopisusugulaaren.jpg",
+        },
+        {
+          name: "Americano",
+          price: 14000,
+          rating: 4,
+          img: "img/Americano.jpg",
+        },
+        {
+          name: "Cappuccino",
+          price: 16000,
+          rating: 5,
+          img: "img/Cappuccino.jpg",
+        },
+        {
+          name: "Latte",
+          price: 16000,
+          rating: 5,
+          img: "img/latte.jpg",
+        },
+        {
+          name: "Teh Manis Hangat",
+          price: 7000,
+          rating: 4,
+          img: "img/Tehmanis.jpg",
+        },
+        {
+          name: "Teh Lemon",
+          price: 10000,
+          rating: 4,
+          img: "img/TehLemon.jpg",
+        },
+        {
+          name: "Jeruk Peras",
+          price: 12000,
+          rating: 5,
+          img: "img/JerukPeras.jpg",
+        },
+        {
+          name: "Es Jeruk",
+          price: 10000,
+          rating: 5,
+          img: "img/EsJeruk.jpg",
+        },
+      ];
+
+      let cart = [];
+      let note = ""; // 🔥 simpan catatan
+
+      let selectedDrink = null;
+
+      /* RENDER */
+      function render(data, id, isDrink = false) {
+        let el = document.getElementById(id);
+
+        data.forEach((item) => {
+          el.innerHTML += `
+<div class="card">
+  <img src="${item.img}">
+  <div class="info">
+    <h3>${item.name}</h3>
+    <p>${formatRupiah(item.price)}</p>
+    <p class="rating">${"★".repeat(item.rating)}</p>
+
+    ${
+      isDrink
+        ? `<button onclick="openVariant('${item.name}', ${item.price}, '${item.img}')">Pilih</button>`
+        : `<button onclick="addCart('${item.name}', ${item.price}, '${item.img}')">Tambah</button>`
+    }
+
+  </div>
+</div>`;
+        });
+      }
+
+      /* BUKA MODAL */
+      function openVariant(nama, price, img) {
+        selectedDrink = { nama, price, img };
+        document.getElementById("variantModal").style.display = "flex";
+      }
+
+      /* PILIH VARIAN */
+      function selectVariant(type) {
+        let namaFinal = selectedDrink.nama + " (" + type + ")";
+        addCart(namaFinal, selectedDrink.price, selectedDrink.img);
+
+        document.getElementById("variantModal").style.display = "none";
+      }
+
+      /* CLOSE MODAL KLIK LUAR */
+      window.onclick = function (e) {
+        let modal = document.getElementById("variantModal");
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      /* INIT */
+      render(foods, "food");
+      render(drinks, "drink", true);
+
+      /* FORMAT RUPIAH */
+      function formatRupiah(angka) {
+        return "Rp " + angka.toLocaleString("id-ID");
+      }
+
+      /* TAMBAH CART (sekarang ada gambar) */
+      function addCart(nama, price, img) {
+        cart.push({ nama, price, img });
+        updateCart();
+      }
+
+      /* HAPUS */
+      function removeItem(index) {
+        cart.splice(index, 1);
+        updateCart();
+      }
+
+      /* UPDATE SIDEBAR */
+      function updateCart() {
+        document.getElementById("count").innerText = cart.length;
+
+        let list = "";
+        let total = 0;
+
+        cart.forEach((item, i) => {
+          total += item.price;
+
+          list += `
+  <div class="cart-item" style="align-items:center;">
+    <img src="${item.img}" style="width:35px;height:35px;border-radius:5px;">
+    <span>${item.nama}</span>
+    <span>${formatRupiah(item.price)}</span>
+    <button onclick="removeItem(${i})">x</button>
+  </div>`;
+        });
+
+        document.getElementById("cartItems").innerHTML = list;
+        document.getElementById("total").innerText =
+          "Total: " + formatRupiah(total);
+      }
+
+      /* CATATAN */
+      function addNote() {
+        let input = prompt("Tambahkan catatan pesanan:");
+        if (input) {
+          note = input;
+          alert("Catatan disimpan!");
+        }
+      }
+
+      /* CHECKOUT WA (🔥 upgrade) */
+      function checkout() {
+        let text = "Halo, saya mau pesan:\n\n";
+
+        let total = 0;
+
+        cart.forEach((item) => {
+          total += item.price;
+          text += "- " + item.nama + " (" + formatRupiah(item.price) + ")\n";
+        });
+
+        text += "\nTotal: " + formatRupiah(total) + "\n";
+
+        if (note) {
+          text += "\nCatatan: " + note;
+        }
+
+        window.open(
+          "https://wa.me/6282311880126?text=" + encodeURIComponent(text),
+          "_blank",
+        );
+      }
+
+      /* TOGGLE */
+      function toggleCart() {
+        document.getElementById("cartSidebar").classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
